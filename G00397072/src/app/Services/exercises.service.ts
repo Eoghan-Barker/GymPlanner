@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ExercisesService {
 
+  selectedExercises:any = [];
+
   constructor(private httpClient:HttpClient) { }
 
   GetArmsData():Observable<any>{
@@ -31,5 +33,13 @@ export class ExercisesService {
 
   GetCalvesData():Observable<any>{
     return this.httpClient.get('https://wger.de/api/v2/exercise/?language=2&category=14&limit=99');
+  }
+
+  SetArray(array){
+    this.selectedExercises = array;
+  }
+
+  GetArray(){
+    return this.selectedExercises;
   }
 }
