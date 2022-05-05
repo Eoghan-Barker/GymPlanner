@@ -1,105 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class=>
-      Tab 1
+      Upper-body Exercises
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-padding">
-   <!--<ion-row >
-      <ion-col size="3.6">
-        Exercise
-      </ion-col>
-      <ion-col size="2.4">
-        Sets
-      </ion-col>
-      <ion-col size="2.4">
-        Reps
-      </ion-col>
-      <ion-col size="3">
-        Weight
-      </ion-col>
-    </ion-row>
-
-    <ion-row >
-      <ion-col size="4">
-        Exercise
-      </ion-col>
-      <ion-col size="2">
-        Sets
-      </ion-col>
-      <ion-col size="2">
-        Reps
-      </ion-col>
-      <ion-col size="2">
-        Weight
-      </ion-col>
-      <ion-col size="2">
-        <ion-checkbox></ion-checkbox>
-      </ion-col>
-    </ion-row>
-
-    <ion-row >
-      <ion-col size="4">
-        Exercise
-      </ion-col>
-      <ion-col size="2">
-        Sets
-      </ion-col>
-      <ion-col size="2">
-        Reps
-      </ion-col>
-      <ion-col size="2">
-        Weight
-      </ion-col>
-      <ion-col size="2">
-        <ion-checkbox></ion-checkbox>
-      </ion-col>
-    </ion-row>
-
-    <ion-row >
-      <ion-col size="4">
-        Exercise
-      </ion-col>
-      <ion-col size="2">
-        Sets
-      </ion-col>
-      <ion-col size="2">
-        Reps
-      </ion-col>
-      <ion-col size="2">
-        Weight
-      </ion-col>
-      <ion-col size="2">
-        <ion-checkbox></ion-checkbox>
-      </ion-col>
-    </ion-row>
-
-    <ion-row >
-      <ion-col size="4">
-        Exercise
-      </ion-col>
-      <ion-col size="2">
-        Sets
-      </ion-col>
-      <ion-col size="2">
-        Reps
-      </ion-col>
-      <ion-col size="2">
-        Weight
-      </ion-col>
-      <ion-col size="2">
-        <ion-checkbox></ion-checkbox>
-      </ion-col>
-    </ion-row>--> 
-
-    <ion-list>
-      <ion-item *ngFor="let exercise of ArmsData">
-        {{exercise.name}}
-        <ion-checkbox></ion-checkbox>
+  <ion-accordion-group>
+    <ion-accordion value="Arms">
+      <ion-item slot="header">
+        <ion-label>Arms</ion-label>
       </ion-item>
-    </ion-list>
-  </ion-grid>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of ArmsData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
+
+    <ion-accordion value="Shoudlers">
+      <ion-item slot="header">
+        <ion-label>Shoulders</ion-label>
+      </ion-item>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of ShoulderData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
+
+    <ion-accordion value="Chest">
+      <ion-item slot="header">
+        <ion-label>Chest</ion-label>
+      </ion-item>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of ChestData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
+
+    <ion-accordion value="Abs">
+      <ion-item slot="header">
+        <ion-label>Abs</ion-label>
+      </ion-item>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of AbsData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
+  </ion-accordion-group>
+  
 </ion-content>

@@ -1,17 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Lower-Body Exercises
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-accordion-group>
+    <ion-accordion value="Legs">
+      <ion-item slot="header">
+        <ion-label>Upper Legs</ion-label>
+      </ion-item>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of LegsData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-accordion value="Calves">
+      <ion-item slot="header">
+        <ion-label>Calves</ion-label>
+      </ion-item>
+  
+      <ion-grid slot = "content">
+        <ion-row *ngFor="let exercise of CalvesData">
+          <ion-col size="9">
+            {{exercise.name}}
+          </ion-col>
+          <ion-col size="3">
+            <ion-checkbox></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

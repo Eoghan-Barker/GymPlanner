@@ -9,10 +9,8 @@ import {ExercisesService} from  '../Services/exercises.service'
 export class Tab1Page implements OnInit{
   ArmsData:any = [];
   ShoulderData:any = [];
-  Exercise = new Array<string>(5);
-  Sets = new Array<number>(5);
-  Reps = new Array<number>(5);
-  Weight = new Array<number>(5);
+  ChestData:any = [];
+  AbsData:any = [];
 
 
   constructor(private exerciseService:ExercisesService) {}
@@ -21,17 +19,26 @@ export class Tab1Page implements OnInit{
     this.exerciseService.GetArmsData().subscribe(
       (data)=>{
         this.ArmsData = data.results; 
-        console.log(this.ArmsData);
       }
     );
 
     this.exerciseService.GetShouldersData().subscribe(
       (data)=>{
         this.ShoulderData = data.results; 
-        console.log(this.ShoulderData);
       }
     );
 
+    this.exerciseService.GetChestData().subscribe(
+      (data)=>{
+        this.ChestData = data.results; 
+      }
+    );
+
+    this.exerciseService.GetAbsData().subscribe(
+      (data)=>{
+        this.AbsData = data.results; 
+      }
+    );
 
   }
 }
