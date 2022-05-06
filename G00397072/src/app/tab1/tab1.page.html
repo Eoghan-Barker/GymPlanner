@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-label>Choose Your Upper Body Exercises From the List Below</ion-label>
   <ion-accordion-group>
     <ion-accordion value="Arms">
       <ion-item slot="header">
@@ -14,11 +15,19 @@
       </ion-item>
   
       <ion-grid slot = "content">
+        <!-- ArmsData and all the prociding "...Data" arrays are gotten from the exercises.service httpClient
+        // for its specific body part-->
         <ion-row *ngFor="let exercise of ArmsData">
           <ion-col size="9">
             {{exercise.name}}
           </ion-col>
           <ion-col size="3">
+            <!--Using event binding to change state variable to the opposite of what it currently is
+            // Also changing the name variable to the most recently selected exercise
+            // Calling saveSelected function which saves the name and state to a 2d array if the box is
+            // Going from unchecked to checked(this is why the state must be saved) otherwise if the
+            // state is false(unchecked) then it will delete the exercise from the array
+            -->
             <ion-checkbox (ionChange)="state = !state" (ionChange)="name = exercise.name" (ionChange)="SaveSelected()"></ion-checkbox>
           </ion-col>
         </ion-row>

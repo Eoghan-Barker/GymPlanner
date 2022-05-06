@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 4
+      Music Player
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,8 @@
       <ion-list-header>
         <ion-label>Select a Track</ion-label>
       </ion-list-header>
-  
+      
+      <!-- Tracks contains 3 local audio files that the user can select between-->
       <ion-item *ngFor="let track of tracks">
         <ion-label>{{track}}</ion-label>
         <ion-radio slot="start" value="{{track}}" (click)="currentTrack = track"></ion-radio>
@@ -22,6 +23,7 @@
 
   <ion-grid>
     <ion-row>
+      <!-- PlaySong will play the currently selected track-->
       <ion-col size="2"></ion-col>
       <ion-col ><ion-button (click)="PlaySong()">Play</ion-button></ion-col>
       <ion-col ><ion-button (click)="StopPlaying()">Stop</ion-button></ion-col>

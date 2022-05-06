@@ -18,6 +18,7 @@ export class Tab2Page implements OnInit{
 
   constructor(private exerciseService:ExercisesService) {}
 
+  // call httClient API requests
   ngOnInit(){
     this.exerciseService.GetLegsData().subscribe(
       (data)=>{
@@ -32,6 +33,13 @@ export class Tab2Page implements OnInit{
     );
   }
 
+  // Searches through the stored exercises array to check the state of the exercise being selected
+  // (will be false if not in array) and changes the state to the opposite(as this is called when the
+  // user is changing the state of the checkbox)
+  //
+  // If the new state is true then the name and state will be pushed to the 2d array
+  // Else the name/state pair will be deleted from the array
+  // At the end it sets the "global" upperBody array for other pages to use
   SaveSelected(){
     // find state of specific checkbox
     for(this.i = 0; this.i<this.selected.length; this.i++){
@@ -57,6 +65,6 @@ export class Tab2Page implements OnInit{
       }
     }
 
-    this.exerciseService.SetArray(this.selected);
+    this.exerciseService.SetLower(this.selected);
   }
 }
